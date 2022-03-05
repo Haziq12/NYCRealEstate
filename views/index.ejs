@@ -4,13 +4,16 @@
 
 <main>
   <% if (user?.profile.avatar) { %>
-    <h1>Welcome</h1>
+    <h1>Welcome <%= user ? user.profile.name : '' %> </h1>
     <div>
       <img
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
       />
     </div>
+    <h3>Buy, sell, or rent here</h3>
+    <h3>Find your next home, or help someone else find their next home</h3>
+
   <% } else { %>
     <h1>Welcome to New York City</h1>
     <h3>Find your next home</h3>

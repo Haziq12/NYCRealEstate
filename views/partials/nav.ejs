@@ -4,6 +4,19 @@
 </head>
 <body>
   <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false">Home</a>
+        <ul class="dropdown-menu">
+          <% if(user) { %> 
+          <li><a class="dropdown-item" href="">Your Profile</a></li>
+          <li><a class="dropdown-item" href="">View or Create Listings</a></li>
+          <% } %> 
+          <li><a class="dropdown-item" href="">Browse Homes</a></li>
+          <li><a class="dropdown-item" href="">Browse Apartments</a></li>
+        </ul>
+      </li>
+    </ul>
     <% if (user) { %>
       <a href="/auth/logout">
         <button type="button" class="btn btn-outline-dark">Logout</button>

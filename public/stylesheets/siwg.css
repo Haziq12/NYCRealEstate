@@ -42,3 +42,6 @@
   width: 1px;
 }
 
+.dropdown-toggle, .dropdown-item {
+  font-size: 15px;
+}
