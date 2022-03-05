@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<%= title %> 
+
+<section>
+  <h1>Houses for sale</h1>
+  <h2>All Houses</h2>
+	<ul>
+  <% houses.forEach(house => { %>
+    <li>house.address</li>
+    <li>house.price</li>
+  <% }) %>
+  </ul>
+</section>
+
+
+<%- include('../partials/footer') %>
