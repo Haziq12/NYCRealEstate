@@ -1,16 +1,21 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
+
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.avatar) { %>
+    <h1>Welcome</h1>
     <div>
       <img
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
       />
     </div>
-  <% } %>
+  <% } else { %>
+    <h1>Welcome to New York City</h1>
+    <h3>Find your next home</h3>
+    <img src="https://i.imgur.com/VpJe3k1.jpg" class="img-fluid" alt="Responsive image">
+  <% } %> 
 </main>
 
 <%- include('./partials/footer') %>
