@@ -68,7 +68,7 @@ app.use(passUserToView)
 // router middleware
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
-app.use('/profile', profilesRouter)
+app.use('/profiles', profilesRouter)
 app.use('/houses', housesRouter)
 app.use('/apartments', apartmentsRouter)
 
