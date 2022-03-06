@@ -1,8 +1,5 @@
 import { Profile } from "../models/profile.js"
 
-// function index(req, res){
-//   console.log('index')
-// }  
 
 
 function show(req, res) {
@@ -25,26 +22,6 @@ function show(req, res) {
   console.log('show')
 }
 
-
-
-// function show(req, res) {
-//     Profile.findById(req.user.profile._id)
-//     console.log('show')
-//       res.render("profiles/show", {
-//         title: `Your profile`
-//       }) 
-//       console.log('show')
-//       .catch((err) => {
-//         console.log(err)
-//         res.redirect("/")
-//       })
-//       console.log('show')
-//     }
-    
-
-
-
 export {
-  show,
-  // index
+  show
 }

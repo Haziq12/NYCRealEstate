@@ -1,7 +1,79 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<%= title %> 
 <h1>Welcome <%= user.profile.name %> </h1>
+<h2>See your listings or add a new one</h2>
+<section>
+  <% if (user) { %>
+    <h2>Add a House for Sale!</h2><br>
+    <form action="/houses" method="POST">
+      <label>
+        Address:
+        <input type="text" name="address" autocomplete="off">
+      </label><br>
+      <label>
+        Price:
+        <input type="number" name="price">
+      </label><br>
+      <label>
+        Contact Number:
+        <input type="number" name="phoneNo">
+      </label><br>
+      <label>
+        Contact Email:
+        <input type="text" name="email">
+      </label><br>
+      <label>
+        Property Description:
+        <input type="string" name="description">
+      </label><br>
+      <label>
+        Number of Bedrooms:
+        <input type="number" name="numBedrooms">
+      </label><br>
+      <label>
+        Number of Bathrooms:
+        <input type="number" name="numBathrooms">
+      </label><br>
+      <button type="submit">Add Home for Sale</button>
+    </form>
+  <% } %>
+</section>
+<section>
+  <% if (user) { %>
+    <h2>Add An Apartment for Rent!</h2><br>
+    <form action="/apartments" method="POST">
+      <label>
+        Address:
+        <input type="text" name="address" autocomplete="off">
+      </label><br>
+      <label>
+        Price:
+        <input type="number" name="price">
+      </label><br>
+      <label>
+        Contact Number:
+        <input type="number" name="phoneNo">
+      </label><br>
+      <label>
+        Contact Email:
+        <input type="text" name="email">
+      </label><br>
+      <label>
+        Property Description:
+        <input type="string" name="description">
+      </label><br>
+      <label>
+        Number of Bedrooms:
+        <input type="number" name="numBedrooms">
+      </label><br>
+      <label>
+        Number of Bathrooms:
+        <input type="number" name="numBathrooms">
+      </label><br>
+      <button type="submit">Add Apartment for Rent</button>
+    </form>
+  <% } %>
+</section>
 
 <%- include('../partials/footer') %>
