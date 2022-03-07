@@ -1,27 +1,66 @@
+import { House } from "../models/house.js"
 import { Profile } from "../models/profile.js"
+import { Apartment } from "../models/apartment.js"
 
 
 
 function show(req, res) {
+  console.log('show')
   Profile.findById(req.params.id)
-  .then(profile => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
-      res.render("profiles/show", {
-        title: `Your Profile`,
-        profile,
-        isSelf
+    .then(profile => {
+      Profile.findById(req.user.profile._id)
+        .then(self => {
+          const isSelf = self._id.equals(profile._id)
+              res.render("profiles/show", {
+                title: `Your Profile`,
+                profile,
+                isSelf,
+              })
+            })
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect("/")
+        })
+    }
+  
+
+function createHouse(req, res) {
+  req.body.owner = req.user.profile._id
+  House.create(req.body)
+    .then(house => {
+      Profile.findById(req.user.profile._id)
+      .then(profile => {
+        profile.houses.push(house._id)
+        profile.save()
+        res.redirect(`/profiles/${req.user.profile._id}`)
       })
     })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
-  })
-  console.log('show')
-}
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  }
+
+
+  function createApartment(req, res) {
+    req.body.owner = req.user.profile._id
+    Apartment.create(req.body)
+      .then(apartment => {
+        res.redirect(`/profiles/${req.user.profile._id}`, {
+          apartment
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+    }
+
+
 
 export {
-  show
+  show,
+  createHouse,
+  createApartment
 }

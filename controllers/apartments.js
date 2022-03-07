@@ -14,19 +14,6 @@ function index(req, res) {
   })
 }
 
-function create(req, res) {
-  req.body.owner = req.user.profile._id
-  Apartment.create(req.body)
-  .then(apartment => {
-    res.redirect('/apartments')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
-  })
-}
-
 export {
-  index,
-  create
+  index
 }

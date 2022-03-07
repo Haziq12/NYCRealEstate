@@ -7,7 +7,7 @@ const router = Router()
 router.get('/', housesCtrl.index)
 
 // POST - localhost:3000/houses
-router.post('/', isLoggedIn, housesCtrl.create)
+// router.post('/', isLoggedIn, housesCtrl.create)
 
 export {
   router

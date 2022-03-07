@@ -3,10 +3,11 @@
 
 <h1>Welcome <%= user.profile.name %> </h1>
 <h2>See your listings or add a new one</h2>
+<h3><%= title %> </h3>
 <section>
-  <% if (user) { %>
+  <% if (isSelf) { %>
     <h2>Add a House for Sale!</h2><br>
-    <form action="/houses" method="POST">
+    <form action="/profiles/<%= profile._id %>/houses" method="POST">
       <label>
         Address:
         <input type="text" name="address" autocomplete="off">
@@ -42,7 +43,7 @@
 <section>
   <% if (user) { %>
     <h2>Add An Apartment for Rent!</h2><br>
-    <form action="/apartments" method="POST">
+    <form action="/profiles/<%= profile._id %>/apartments" method="POST">
       <label>
         Address:
         <input type="text" name="address" autocomplete="off">
@@ -74,6 +75,7 @@
       <button type="submit">Add Apartment for Rent</button>
     </form>
   <% } %>
+  <h1>Your Houses for sale</h1><br><br>
 </section>
 
 <%- include('../partials/footer') %>
