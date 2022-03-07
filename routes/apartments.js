@@ -7,6 +7,10 @@ const router = Router()
 
 router.get('/', apartmentsCtrl.index)
 
+router.get('/:id/edit', isLoggedIn, apartmentsCtrl.edit)
+
+router.put("/:id", isLoggedIn, apartmentsCtrl.update)
+
 
 export {
   router

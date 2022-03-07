@@ -80,8 +80,13 @@
   <% profile.houses.forEach(house => { %> 
     <li>
       Address: <%= house.address %><br>
-      Price: <%= house.price %>
-      <a href="/profiles/<%= profile._id %>/edit">
+      Price: <%= house.price %><br>
+      Email: <%= house.email %><br>
+      Phone Number: <%= house.phoneNo %><br>
+      Description: <%= house.description %><br> 
+      Bedrooms: <%= house.numBedrooms %><br>  
+      Bathrooms: <%= house.numBathrooms %><br> 
+      <a href="/houses/<%= house._id %>/edit">
         <button>Edit House</button>
       </a>
     </li>
@@ -89,11 +94,16 @@
   </ul>
   <h3>Your Apartments for rent</h3><br>
   <ul>
-    <% profile.apartments.forEach(house => { %> 
+    <% profile.apartments.forEach(apartment => { %> 
         <li>
-          Address: <%= house.address %><br>
-          Rent: <%= house.price %>
-          <a href="/profiles/<%= profile._id %>/edit">
+          Address: <%= apartment.address %><br>
+          Rent: <%= apartment.price %><br>
+          Email: <%= apartment.email %><br>
+          Phone Number: <%= apartment.phoneNo %><br>
+          Description: <%= apartment.description %><br>  
+          Bedrooms: <%= apartment.numBedrooms %><br>  
+          Bathrooms: <%= apartment.numBathrooms %><br> 
+          <a href= "/apartments/<%= apartment._id %>/edit">
             <button>Edit Apartment</button>
           </a>
         </li>

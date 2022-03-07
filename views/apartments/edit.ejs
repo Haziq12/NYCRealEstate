@@ -1,0 +1,29 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <form 
+    id="new-form" 
+    action="/apartments/<%= apartment._id %>?_method=PUT"
+    method="POST"
+  >
+  <label for="address-input">Address:</label>
+  <input type="text" name="address" value="<%= apartment.address %>" id="apartment-address-input, input">
+<label for="price">Price:</label>
+  <input type="number" name="price" value="<%= apartment.price %>" id="apartment-price, input">
+<label for="email">Email</label>
+   <input type="text" name="email" value="<%= apartment.email %>" id="apartment-email, input">
+<label for="phoneNo">Phone Number:</label>
+  <input type="number" name="phoneNo" value="<%= apartment.phoneNo %>" id="apartment-phone, input">
+<label for="description">Description:</label>
+  <input type="text" name="description" value="<%= apartment.description %>" id="apartment-description, input">
+<label for="numBedrooms">Number of Bedrooms:</label>
+  <input type="number" name="numBedrooms" value="<%= apartment.numBedrooms %>" id="apartment-numBedrooms, input">
+  <label for="numBathrooms">Number of Bathrooms:</label>
+  <input type="number" name="numBathrooms" value="<%= apartment.numBathrooms %>" id="apartment-numBathrooms, input">
+<button type="submit">Update Apartment</button>
+</main>
+
+
+<%- include('../partials/footer') %>

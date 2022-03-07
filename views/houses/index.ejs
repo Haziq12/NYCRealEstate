@@ -9,7 +9,12 @@
   <% houses.forEach(house => { %>
     <li>
       Address: <%= house.address %><br>
-      Price: <%= house.price %>    
+      Price: <%= house.price %><br>    
+      Email: <%= house.email %><br>
+      Phone Number: <%= house.phoneNo %><br>
+      Description: <%= house.description %><br>  
+      Bedrooms: <%= house.numBedrooms %><br>  
+      Bathrooms: <%= house.numBathrooms %><br> 
     </li>
   <% }) %>
   </ul>   

@@ -64,21 +64,43 @@ function createHouse(req, res) {
 
 
 
-    function edit(req, res) {
-      Profile.findById(req.params.id, function (err, house) {
-        res.render("profiles/edit", {
-          house,
-          err,
-          title: "Edit House"
-        })
-      })
-    }
+    // function edit(req, res) {
+    //   House.findById(req.params.id)
+    //   .then(house => {
+    //     res.render("profiles/edit", {
+    //       house,
+    //       title: "edit house"
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     res.redirect("/profiles")
+    //   })
+    // }
+
+    // function update(req, res) {
+    //   req.body.owner = req.user.profile._id
+    //   Profile.findById(req.params.id)
+    //   .then(house => {
+    //     if (house.owner.equals(req.user.profile._id)) {
+    //       house.updateOne(req.body, {new: true})
+    //       .then(() => {
+    //         res.redirect(`/profiles/${req.user.profile._id}`)
+    //       })
+    //     } else {
+    //       throw new Error("NOT AUTHORIZED")
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log("the error:", err)
+    //     res.redirect("/profiles")
+    //   })
+    // }
 
 
 
 export {
   show,
   createHouse,
-  createApartment,
-  edit
+  createApartment
 }

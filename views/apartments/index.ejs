@@ -10,7 +10,13 @@
     <% apartments.forEach(apartment => { %>
       <li>
         Address: <%= apartment.address %><br>
-        Price: <%= apartment.price %>    
+        Price: <%= apartment.price %><br>
+        Email: <%= apartment.email %><br>
+        Phone Number: <%= apartment.phoneNo %><br>
+        Description: <%= apartment.description %><br>  
+        Bedrooms: <%= apartment.numBedrooms %><br>  
+        Bathrooms: <%= apartment.numBathrooms %><br>     
+        
       </li>
     <% }) %>
     </ul>
