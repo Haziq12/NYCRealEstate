@@ -78,15 +78,25 @@
   <h3>Your Houses for sale</h3><br>
   <ul>
   <% profile.houses.forEach(house => { %> 
-      <li><%= house.address %></li>
-      <li><%= house.price %></li>
+    <li>
+      Address: <%= house.address %><br>
+      Price: <%= house.price %>
+      <a href="/profiles/<%= profile._id %>/edit">
+        <button>Edit House</button>
+      </a>
+    </li>
   <% }) %> 
   </ul>
   <h3>Your Apartments for rent</h3><br>
   <ul>
     <% profile.apartments.forEach(house => { %> 
-        <li><%= house.address %></li>
-        <li><%= house.price %></li>
+        <li>
+          Address: <%= house.address %><br>
+          Rent: <%= house.price %>
+          <a href="/profiles/<%= profile._id %>/edit">
+            <button>Edit Apartment</button>
+          </a>
+        </li>
     <% }) %> 
     </ul>
 </section>

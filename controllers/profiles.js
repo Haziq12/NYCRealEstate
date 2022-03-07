@@ -64,24 +64,21 @@ function createHouse(req, res) {
 
 
 
-  // function createApartment(req, res) {
-  //   req.body.owner = req.user.profile._id
-  //   Apartment.create(req.body)
-  //     .then(apartment => {
-  //       res.redirect(`/profiles/${req.user.profile._id}`, {
-  //         apartment
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //       res.redirect(`/profiles/${req.user.profile._id}`)
-  //     })
-  //   }
+    function edit(req, res) {
+      Profile.findById(req.params.id, function (err, house) {
+        res.render("profiles/edit", {
+          house,
+          err,
+          title: "Edit House"
+        })
+      })
+    }
 
 
 
 export {
   show,
   createHouse,
-  createApartment
+  createApartment,
+  edit
 }

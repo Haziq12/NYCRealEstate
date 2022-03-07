@@ -12,6 +12,9 @@ router.post("/:id/houses", isLoggedIn, profilesCtrl.createHouse)
 // POST - localhost:3000/profiles/:id/houses
 router.post("/:id/apartments", isLoggedIn, profilesCtrl.createApartment)
 
+// GET - localhost:3000/profiles/:id/edit
+router.get("/:id/edit", profilesCtrl.edit)
+
 export {
   router
 }
