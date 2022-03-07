@@ -6,10 +6,11 @@ import { Apartment } from "../models/apartment.js"
 
 function show(req, res) {
   console.log('show')
-  Profile.findById(req.params.id)
+  Profile.findById(req.params.id).populate('houses')
     .then(profile => {
       Profile.findById(req.user.profile._id)
         .then(self => {
+          console.log(self)
           const isSelf = self._id.equals(profile._id)
               res.render("profiles/show", {
                 title: `Your Profile`,
@@ -23,7 +24,8 @@ function show(req, res) {
           res.redirect("/")
         })
     }
-  
+    
+
 
 function createHouse(req, res) {
   req.body.owner = req.user.profile._id

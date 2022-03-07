@@ -14,20 +14,7 @@ function index(req, res) {
   })
 }
 
-// function create(req, res) {
-//   req.body.owner = req.user.profile._id
-//   console.log(req.user.profile._id)
-//   House.create(req.body)
-//   .then(house => {
-//     res.redirect('/houses')
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect("/")
-//   })
-// }
 
 export {
   index,
-  // create
 }

@@ -76,6 +76,12 @@
     </form>
   <% } %>
   <h1>Your Houses for sale</h1><br><br>
+  <ul>
+  <% profile.houses.forEach(house => { %> 
+      <li><%=  house.address %></li>
+      <li><%=  house.price %></li>
+  <% }) %> 
+  </ul>
 </section>
 
 <%- include('../partials/footer') %>
