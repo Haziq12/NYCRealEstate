@@ -6,7 +6,7 @@ import { Apartment } from "../models/apartment.js"
 
 function show(req, res) {
   console.log('show')
-  Profile.findById(req.params.id).populate('houses')
+  Profile.findById(req.params.id).populate('houses').populate('apartments')
     .then(profile => {
       Profile.findById(req.user.profile._id)
         .then(self => {
@@ -44,13 +44,15 @@ function createHouse(req, res) {
     })
   }
 
-
   function createApartment(req, res) {
     req.body.owner = req.user.profile._id
     Apartment.create(req.body)
       .then(apartment => {
-        res.redirect(`/profiles/${req.user.profile._id}`, {
-          apartment
+        Profile.findById(req.user.profile._id)
+        .then(profile => {
+          profile.apartments.push(apartment._id)
+          profile.save()
+          res.redirect(`/profiles/${req.user.profile._id}`)
         })
       })
       .catch(err => {
@@ -58,6 +60,23 @@ function createHouse(req, res) {
         res.redirect(`/profiles/${req.user.profile._id}`)
       })
     }
+
+
+
+
+  // function createApartment(req, res) {
+  //   req.body.owner = req.user.profile._id
+  //   Apartment.create(req.body)
+  //     .then(apartment => {
+  //       res.redirect(`/profiles/${req.user.profile._id}`, {
+  //         apartment
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //       res.redirect(`/profiles/${req.user.profile._id}`)
+  //     })
+  //   }
 
 
 

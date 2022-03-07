@@ -75,13 +75,20 @@
       <button type="submit">Add Apartment for Rent</button>
     </form>
   <% } %>
-  <h1>Your Houses for sale</h1><br><br>
+  <h3>Your Houses for sale</h3><br>
   <ul>
   <% profile.houses.forEach(house => { %> 
-      <li><%=  house.address %></li>
-      <li><%=  house.price %></li>
+      <li><%= house.address %></li>
+      <li><%= house.price %></li>
   <% }) %> 
   </ul>
+  <h3>Your Apartments for rent</h3><br>
+  <ul>
+    <% profile.apartments.forEach(house => { %> 
+        <li><%= house.address %></li>
+        <li><%= house.price %></li>
+    <% }) %> 
+    </ul>
 </section>
 
 <%- include('../partials/footer') %>
