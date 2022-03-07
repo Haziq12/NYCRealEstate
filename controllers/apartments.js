@@ -48,8 +48,27 @@ function update(req, res) {
     })
   }
 
+  function deleteApartment(req, res) {
+    Apartment.findById(req.params.id)
+    .then(apartment => {
+      if (apartment.owner.equals(req.user.profile._id)) {
+        apartment.delete()
+        .then(() => {
+          res.redirect(`/profiles/${req.user.profile._id}`)
+        })
+      } else {
+        throw new Error ("NOT AUTHORIZED")
+      }
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect("/profiles")
+    })
+  }
+
 export {
   index,
   edit,
-  update
+  update,
+  deleteApartment as delete
 }

@@ -11,6 +11,9 @@ router.get('/:id/edit', isLoggedIn, apartmentsCtrl.edit)
 
 router.put("/:id", isLoggedIn, apartmentsCtrl.update)
 
+router.delete("/:id/delete", isLoggedIn, apartmentsCtrl.delete)
+
+
 
 export {
   router
