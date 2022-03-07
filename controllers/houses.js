@@ -1,4 +1,5 @@
 import { House } from '../models/house.js'
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   House.find({})
@@ -52,7 +53,7 @@ function update(req, res) {
     House.findById(req.params.id)
     .then(house => {
       if (house.owner.equals(req.user.profile._id)) {
-        house.delete()
+        house.delete() 
         .then(() => {
           res.redirect(`/profiles/${req.user.profile._id}`)
         })
