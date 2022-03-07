@@ -110,6 +110,9 @@
           <a href= "/apartments/<%= apartment._id %>/edit">
             <button>Edit Apartment</button>
           </a>
+          <form action="/apartments/<%= apartment._id %>/delete?_method=DELETE" method="POST">
+            <button type="submit">Delete this apartment</button>
+          </form>
         </li>
     <% }) %> 
     </ul>
