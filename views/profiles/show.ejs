@@ -87,8 +87,12 @@
       Bedrooms: <%= house.numBedrooms %><br>  
       Bathrooms: <%= house.numBathrooms %><br> 
       <a href="/houses/<%= house._id %>/edit">
-        <button>Edit House</button>
+        <button type="submit">Edit House</button>
       </a>
+      <form action="/houses/<%= house._id %>/delete?_method=DELETE" method="POST">
+        <button type="submit">Delete this house</button>
+      </form>
+
     </li>
   <% }) %> 
   </ul>

@@ -10,6 +10,8 @@ router.get('/:id/edit', isLoggedIn, housesCtrl.edit)
 
 router.put("/:id", isLoggedIn, housesCtrl.update)
 
+router.delete("/:id/delete", isLoggedIn, housesCtrl.delete)
+
 // POST - localhost:3000/houses
 // router.post('/', isLoggedIn, housesCtrl.create)
 

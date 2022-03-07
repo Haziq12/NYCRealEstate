@@ -48,8 +48,28 @@ function update(req, res) {
   }
 
 
+  function deleteHouse(req, res) {
+    House.findById(req.params.id)
+    .then(house => {
+      if (house.owner.equals(req.user.profile._id)) {
+        house.delete()
+        .then(() => {
+          res.redirect(`/profiles/${req.user.profile._id}`)
+        })
+      } else {
+        throw new Error ("NOT AUTHORIZED")
+      }
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect("/profiles")
+    })
+  }
+
+
 export {
   index,
   edit,
-  update
+  update,
+  deleteHouse as delete
 }
