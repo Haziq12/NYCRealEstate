@@ -59,4 +59,18 @@ ul {
   font-size: 15px;
 }
 
+.card-title {
+  font-size: 20px;
+}
 
+.card {
+  font-size: 15px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  text-decoration: none;
+  list-style-type: none;
+}

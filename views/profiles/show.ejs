@@ -8,33 +8,33 @@
   <% if (isSelf) { %>
     <h2>Add a House for Sale!</h2><br>
     <form action="/profiles/<%= profile._id %>/houses" method="POST">
-      <label>
+      <label class="form-label">
         Address:
-        <input type="text" name="address" autocomplete="off">
+        <input type="text" name="address" autocomplete="off" class="form-control">
       </label><br>
       <label>
         Price:
-        <input type="number" name="price">
+        <input type="number" name="price" class="form-control">
       </label><br>
       <label>
         Contact Number:
-        <input type="number" name="phoneNo">
+        <input type="number" name="phoneNo" class="form-control">
       </label><br>
       <label>
         Contact Email:
-        <input type="text" name="email">
+        <input type="text" name="email" class="form-control">
       </label><br>
       <label>
         Property Description:
-        <input type="string" name="description">
+        <input type="string" name="description" class="form-control">
       </label><br>
       <label>
         Number of Bedrooms:
-        <input type="number" name="numBedrooms">
+        <input type="number" name="numBedrooms" class="form-control">
       </label><br>
       <label>
         Number of Bathrooms:
-        <input type="number" name="numBathrooms">
+        <input type="number" name="numBathrooms" class="form-control">
       </label><br>
       <button type="submit">Add Home for Sale</button>
     </form>
@@ -46,46 +46,65 @@
     <form action="/profiles/<%= profile._id %>/apartments" method="POST">
       <label>
         Address:
-        <input type="text" name="address" autocomplete="off">
+        <input type="text" name="address" autocomplete="off" class="form-control">
       </label><br>
       <label>
         Price:
-        <input type="number" name="price">
+        <input type="number" name="price" class="form-control">
       </label><br>
       <label>
         Contact Number:
-        <input type="number" name="phoneNo">
+        <input type="number" name="phoneNo" class="form-control">
       </label><br>
       <label>
         Contact Email:
-        <input type="text" name="email">
+        <input type="text" name="email" class="form-control">
       </label><br>
       <label>
         Property Description:
-        <input type="string" name="description">
+        <input type="string" name="description" class="form-control">
       </label><br>
       <label>
         Number of Bedrooms:
-        <input type="number" name="numBedrooms">
+        <input type="number" name="numBedrooms" class="form-control">
       </label><br>
       <label>
         Number of Bathrooms:
-        <input type="number" name="numBathrooms">
+        <input type="number" name="numBathrooms" class="form-control">
       </label><br>
       <button type="submit">Add Apartment for Rent</button>
     </form>
   <% } %>
+</section>
   <h3>Your Houses for sale</h3><br>
   <ul>
   <% profile.houses.forEach(house => { %> 
     <li>
-      Address: <%= house.address %><br>
+
+      <div class="card w-75 h-75 p-3 text-dark bg-info border-success mb-5 shadow-lg body rounded overflow-auto">
+        <div class="card-body">
+          <h5 class="card-title">Address: <%= house.address %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">
+            Price: <%= house.price %><br>
+            Email: <%= house.email %><br>
+            Phone Number: <%= house.phoneNo %><br>
+            Description: <%= house.description %><br> 
+            Bedrooms: <%= house.numBedrooms %><br>  
+            Bathrooms: <%= house.numBathrooms %><br>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+
+
+      <!-- Address: <%= house.address %><br>
       Price: <%= house.price %><br>
       Email: <%= house.email %><br>
       Phone Number: <%= house.phoneNo %><br>
       Description: <%= house.description %><br> 
       Bedrooms: <%= house.numBedrooms %><br>  
-      Bathrooms: <%= house.numBathrooms %><br> 
+      Bathrooms: <%= house.numBathrooms %><br>  -->
       <a href="/houses/<%= house._id %>/edit">
         <button type="submit">Edit House</button>
       </a>
@@ -100,13 +119,31 @@
   <ul>
     <% profile.apartments.forEach(apartment => { %> 
         <li>
-          Address: <%= apartment.address %><br>
+  
+          <div class="card w-75 h-75 p-3 text-dark bg-info border-success mb-5 shadow-lg body rounded overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">
+                Rent: <%= apartment.price %><br>
+                Email: <%= apartment.email %><br>
+                Phone Number: <%= apartment.phoneNo %><br>
+                Description: <%= apartment.description %><br>  
+                Bedrooms: <%= apartment.numBedrooms %><br>  
+                Bathrooms: <%= apartment.numBathrooms %><br></p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+
+          <!-- Address: <%= apartment.address %><br>
           Rent: <%= apartment.price %><br>
           Email: <%= apartment.email %><br>
           Phone Number: <%= apartment.phoneNo %><br>
           Description: <%= apartment.description %><br>  
           Bedrooms: <%= apartment.numBedrooms %><br>  
-          Bathrooms: <%= apartment.numBathrooms %><br> 
+          Bathrooms: <%= apartment.numBathrooms %><br>  -->
+
           <a href= "/apartments/<%= apartment._id %>/edit">
             <button>Edit Apartment</button>
           </a>
@@ -116,6 +153,6 @@
         </li>
     <% }) %> 
     </ul>
-</section>
+
 
 <%- include('../partials/footer') %>
