@@ -3,22 +3,27 @@
 
 <%= title %> 
 
+<h1>All Houses for sale</h1><br><br>
 
-  <h1>All Houses for sale</h1><br><br>
-	<ul>
-  <% houses.forEach(house => { %>
-    <li>
-      Address: <%= house.address %><br>
-      Price: <%= house.price %><br>    
-      Email: <%= house.email %><br>
-      Phone Number: <%= house.phoneNo %><br>
-      Description: <%= house.description %><br>  
-      Bedrooms: <%= house.numBedrooms %><br>  
-      Bathrooms: <%= house.numBathrooms %><br> 
-    </li>
-  <% }) %>
-  </ul>   
-
+<div class="houses">
+  <% houses.forEach(house => { %> 
+      <div class="card w-75 h-75 p-3 text-dark bg-info border-success mb-5 shadow-lg body rounded overflow-auto">
+        <div class="card-body">
+          <h5 class="card-title"><%= house.address %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <p class="card-text">
+            Rent: <%= house.price %><br>
+            Email: <%= house.email %><br>
+            Phone Number: <%= house.phoneNo %><br>
+            Description: <%= house.description %><br>  
+            Bedrooms: <%= house.numBedrooms %><br>  
+            Bathrooms: <%= house.numBathrooms %><br></p>
+          <!-- <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+      <% }) %> 
+    </div>
 
 
 <%- include('../partials/footer') %>
