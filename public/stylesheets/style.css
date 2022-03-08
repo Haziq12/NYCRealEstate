@@ -43,6 +43,14 @@ h1 {
   text-align: center;
 }
 
+.profile-heading {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
 button {
   margin-right: 10px;
 }
@@ -91,3 +99,6 @@ ul {
   font-size: 15px;
 }
 
+.logout {
+  text-align: right;
+}

@@ -2,8 +2,7 @@
 <%- include('../partials/nav') %>
 
 <h1>Welcome <%= user.profile.name %> </h1>
-<h2>See your listings or add a new one</h2>
-<h3><%= title %> </h3>
+<h2 class="profile-heading">See your listings or add a new one</h2>
 
   <% if (isSelf) { %>
     <div class="form">
@@ -36,8 +35,8 @@
       <label>
         Number of Bathrooms:
         <input type="number" name="numBathrooms" class="form-control">
-      </label>
-      <button type="submit">Add Home for Sale</button>
+      </label><br>
+      <button type="submit" class="btn btn-primary">Add Home for Sale</button>
     </form>
   <% } %>
   <% if (user) { %>
@@ -71,7 +70,7 @@
         Number of Bathrooms:
         <input type="number" name="numBathrooms" class="form-control">
       </label><br>
-      <button type="submit">Add Apartment for Rent</button>
+      <button type="submit" class="btn btn-primary">Add Apartment for Rent</button>
     </form>
   </div>
   <% } %>
@@ -96,20 +95,11 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
-
-
-      <!-- Address: <%= house.address %><br>
-      Price: <%= house.price %><br>
-      Email: <%= house.email %><br>
-      Phone Number: <%= house.phoneNo %><br>
-      Description: <%= house.description %><br> 
-      Bedrooms: <%= house.numBedrooms %><br>  
-      Bathrooms: <%= house.numBathrooms %><br>  -->
       <a href="/houses/<%= house._id %>/edit">
-        <button type="submit">Edit House</button>
+        <button type="submit" class="btn btn-outline-primary">Edit House</button>
       </a>
       <form action="/houses/<%= house._id %>/delete?_method=DELETE" method="POST">
-        <button type="submit">Delete this house</button>
+        <button type="submit" class="btn btn-outline-primary">Delete this house</button>
       </form>
 
     </li>
@@ -135,20 +125,11 @@
               <a href="#" class="card-link">Another link</a>
             </div>
           </div>
-
-          <!-- Address: <%= apartment.address %><br>
-          Rent: <%= apartment.price %><br>
-          Email: <%= apartment.email %><br>
-          Phone Number: <%= apartment.phoneNo %><br>
-          Description: <%= apartment.description %><br>  
-          Bedrooms: <%= apartment.numBedrooms %><br>  
-          Bathrooms: <%= apartment.numBathrooms %><br>  -->
-
           <a href= "/apartments/<%= apartment._id %>/edit">
-            <button>Edit Apartment</button>
+            <button class="btn btn-outline-primary">Edit Apartment</button>
           </a>
           <form action="/apartments/<%= apartment._id %>/delete?_method=DELETE" method="POST">
-            <button type="submit">Delete this apartment</button>
+            <button type="submit" class="btn btn-outline-primary">Delete this apartment</button>
           </form>
         </li>
     <% }) %> 
