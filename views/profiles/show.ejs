@@ -4,10 +4,11 @@
 <h1>Welcome <%= user.profile.name %> </h1>
 <h2>See your listings or add a new one</h2>
 <h3><%= title %> </h3>
-<section>
+
   <% if (isSelf) { %>
-    <h2>Add a House for Sale!</h2><br>
-    <form action="/profiles/<%= profile._id %>/houses" method="POST">
+    <div class="form">
+    <form action="/profiles/<%= profile._id %>/houses" method="POST" class="form-1">
+      <h2>Add a House for Sale!</h2><br>
       <label class="form-label">
         Address:
         <input type="text" name="address" autocomplete="off" class="form-control">
@@ -35,15 +36,13 @@
       <label>
         Number of Bathrooms:
         <input type="number" name="numBathrooms" class="form-control">
-      </label><br>
+      </label>
       <button type="submit">Add Home for Sale</button>
     </form>
   <% } %>
-</section>
-<section>
   <% if (user) { %>
-    <h2>Add An Apartment for Rent!</h2><br>
-    <form action="/profiles/<%= profile._id %>/apartments" method="POST">
+    <form action="/profiles/<%= profile._id %>/apartments" method="POST" class="form-2">
+      <h2>Add An Apartment for Rent!</h2>
       <label>
         Address:
         <input type="text" name="address" autocomplete="off" class="form-control">
@@ -74,8 +73,9 @@
       </label><br>
       <button type="submit">Add Apartment for Rent</button>
     </form>
+  </div>
   <% } %>
-</section>
+
   <h3>Your Houses for sale</h3><br>
   <ul>
   <% profile.houses.forEach(house => { %> 

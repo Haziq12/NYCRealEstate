@@ -40,6 +40,7 @@ main {
 
 h1 {
   font-size: 3.6rem;
+  text-align: center;
 }
 
 button {
@@ -74,3 +75,10 @@ ul {
   text-decoration: none;
   list-style-type: none;
 }
+
+
+div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
