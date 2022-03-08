@@ -86,3 +86,8 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.form label {
+  font-size: 15px;
+}
+

@@ -1,16 +1,13 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<%= title %> 
 
-
-  <h1>Apartments for rent</h1>
-  <h2>All Apartments</h2>
+  <h1>Apartments for rent</h1><br>
 <div class="apartments">
   <% apartments.forEach(apartment => { %> 
       <div class="card w-75 h-75 p-3 text-dark bg-info border-success mb-5 shadow-lg body rounded overflow-auto">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title"><%= apartment.address %> </h5>
           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
           <p class="card-text">
             Rent: <%= apartment.price %><br>
@@ -25,20 +22,6 @@
       </div>
       <% }) %> 
     </div>
-  <!-- <ul>
-    <% apartments.forEach(apartment => { %>
-      <li>
-        Address: <%= apartment.address %><br>
-        Price: <%= apartment.price %><br>
-        Email: <%= apartment.email %><br>
-        Phone Number: <%= apartment.phoneNo %><br>
-        Description: <%= apartment.description %><br>  
-        Bedrooms: <%= apartment.numBedrooms %><br>  
-        Bathrooms: <%= apartment.numBathrooms %><br>     
-        
-      </li>
-    <% }) %>
-    </ul> -->
 
 
 <%- include('../partials/footer') %>
