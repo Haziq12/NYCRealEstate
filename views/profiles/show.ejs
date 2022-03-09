@@ -5,7 +5,7 @@
 <h1>Welcome <%= user.profile.name %> </h1>
 </div>
 
-<h2 class="profile-heading">See your listings or add a new one</h2>
+<h2 class="profile-heading">Scroll down to see your listings or add a new one in the forms below</h2>
 
   <% if (isSelf) { %>
     <div class="form">
@@ -20,6 +20,14 @@
         <input type="number" name="price" class="form-control">
       </label><br>
       <label>
+        Number of Bedrooms:
+        <input type="number" name="numBedrooms" class="form-control">
+      </label><br>
+      <label>
+        Number of Bathrooms:
+        <input type="number" name="numBathrooms" class="form-control">
+      </label><br>
+      <label>
         Contact Number:
         <input type="number" name="phoneNo" class="form-control">
       </label><br>
@@ -31,15 +39,7 @@
         Property Description:
         <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
         </label><br>
-      <label>
-        Number of Bedrooms:
-        <input type="number" name="numBedrooms" class="form-control">
-      </label><br>
-      <label>
-        Number of Bathrooms:
-        <input type="number" name="numBathrooms" class="form-control">
-      </label><br>
-      <button type="submit" class="btn btn-outline-info">Add Home for Sale</button>
+      <button type="submit" class="btn btn-outline-secondary">Add Home for Sale</button>
     </form>
   <% } %>
   <% if (user) { %>
@@ -54,6 +54,14 @@
         <input type="number" name="price" class="form-control">
       </label><br>
       <label>
+        Number of Bedrooms:
+        <input type="number" name="numBedrooms" class="form-control">
+      </label><br>
+      <label>
+        Number of Bathrooms:
+        <input type="number" name="numBathrooms" class="form-control">
+      </label><br>
+      <label>
         Contact Number:
         <input type="number" name="phoneNo" class="form-control">
       </label><br>
@@ -65,20 +73,12 @@
         Property Description:
         <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
         </label><br>
-      <label>
-        Number of Bedrooms:
-        <input type="number" name="numBedrooms" class="form-control">
-      </label><br>
-      <label>
-        Number of Bathrooms:
-        <input type="number" name="numBathrooms" class="form-control">
-      </label><br>
-      <button type="submit" class="btn btn-outline-info">Add Apartment for Rent</button>
+      <button type="submit" class="btn btn-outline-secondary">Add Apartment for Rent</button>
     </form>
   </div>
   <% } %>
 
-  <h3>Your Houses for sale</h3><br>
+  <h3 class="show">Your Houses for sale</h3><br>
   <ul>
   <% profile.houses.forEach(house => { %> 
     <li>
@@ -89,11 +89,12 @@
           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
           <p class="card-text">
             Price: <%= house.price %><br>
-            Email: <%= house.email %><br>
-            Phone Number: <%= house.phoneNo %><br>
-            Description: <%= house.description %><br> 
             Bedrooms: <%= house.numBedrooms %><br>  
             Bathrooms: <%= house.numBathrooms %><br>
+            Email: <%= house.email %><br>
+            Phone Number: <%= house.phoneNo %><br>
+            Description: <%= house.description %><br>
+          </p> 
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
@@ -104,11 +105,10 @@
       <form action="/houses/<%= house._id %>/delete?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-outline-primary">Delete this house</button>
       </form>
-
     </li>
   <% }) %> 
   </ul>
-  <h3>Your Apartments for rent</h3><br>
+  <h3 class="show">Your Apartments for rent</h3><br>
   <ul>
     <% profile.apartments.forEach(apartment => { %> 
         <li>
@@ -119,11 +119,12 @@
               <h6 class="card-subtitle mb-2 text-muted"></h6>
               <p class="card-text">
                 Rent: <%= apartment.price %><br>
+                Bedrooms: <%= apartment.numBedrooms %><br>  
+                Bathrooms: <%= apartment.numBathrooms %><br>
                 Email: <%= apartment.email %><br>
                 Phone Number: <%= apartment.phoneNo %><br>
                 Description: <%= apartment.description %><br>  
-                Bedrooms: <%= apartment.numBedrooms %><br>  
-                Bathrooms: <%= apartment.numBathrooms %><br></p>
+                </p>
               <a href="#" class="card-link">Card link</a>
               <a href="#" class="card-link">Another link</a>
             </div>

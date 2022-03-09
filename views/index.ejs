@@ -7,22 +7,16 @@
     <div class="eleven">
       <h1>Welcome <%= user ? user.profile.name : '' %> </h1>
     </div>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
     <h3>Buy, sell, or rent here</h3>
-    <h3>Find your next home, or help someone else find their next home</h3>
-    <img src="https://i.imgur.com/VpJe3k1.jpg" class="img-fluid" alt="Responsive image">
+
+    <img src="https://i.imgur.com/VpJe3k1.jpg" class="" alt="Responsive image">
 
   <% } else { %>
     <div class="eleven">
     <h1>Welcome to New York City</h1>
     </div>
     <h3>Find your next home</h3>
-    <img src="https://i.imgur.com/VpJe3k1.jpg" class="img-fluid" alt="Responsive image">
+    <img src="https://i.imgur.com/VpJe3k1.jpg" class="" alt="Responsive image">
   <% } %> 
 </main>
 
