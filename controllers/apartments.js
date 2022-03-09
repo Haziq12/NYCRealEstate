@@ -1,4 +1,5 @@
 import { Apartment } from '../models/apartment.js'
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Apartment.find({})
@@ -48,23 +49,34 @@ function update(req, res) {
     })
   }
 
+
+
+
   function deleteApartment(req, res) {
-    Apartment.findById(req.params.id)
-    .then(apartment => {
-      if (apartment.owner.equals(req.user.profile._id)) {
-        apartment.delete()
-        .then(() => {
-          res.redirect(`/profiles/${req.user.profile._id}`)
-        })
-      } else {
-        throw new Error ("NOT AUTHORIZED")
-      }
-    })
-    .catch(err => {
-      console.log("the error:", err)
-      res.redirect("/profiles")
-    })
+    Profile.findById(req.user.profile._id)
+      .then(profile => {
+        profile.apartments.remove({ _id: req.params.id })
+        profile.save()
+        Apartment.findById(req.params.id)
+          .then(apartment => {
+            if (apartment.owner.equals(req.user.profile._id)) {
+              apartment.delete()
+                .then(() => {
+                  res.redirect(`/profiles/${req.user.profile._id}`)
+                })
+            } else {
+              throw new Error("Not Allowed")
+            }
+          })
+      })
+      .catch(err => {
+        console.log("the error:", err)
+        res.redirect("/profiles")
+      })
   }
+
+
+
 
 export {
   index,

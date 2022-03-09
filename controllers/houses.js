@@ -49,31 +49,29 @@ function update(req, res) {
   }
 
 
-  function deleteHouse(req, res) {
-    const houseId = req.params.id
-    console.log('Request User:', req.user)
-    Profile.findById(req.user.profile._id)
+function deleteHouse(req, res) {
+  const houseId = req.params.id
+  Profile.findById(req.user.profile._id)
     .then(profile => {
-      console.log('Profile house:', profile.houses)
-      profile.houses.remove({_id: req.params.id})
+      profile.houses.remove({ _id: req.params.id })
       profile.save()
-    House.findById(houseId)
-    .then(house => {
-      if (house.owner.equals(req.user.profile._id)) {
-        house.delete() 
-        .then(() => {
-          res.redirect(`/profiles/${req.user.profile._id}`)
+      House.findById(req.params.id)
+        .then(house => {
+          if (house.owner.equals(req.user.profile._id)) {
+            house.delete()
+              .then(() => {
+                res.redirect(`/profiles/${req.user.profile._id}`)
+              })
+          } else {
+            throw new Error("Not Allowed")
+          }
         })
-      } else {
-        throw new Error ("Not Allowed")
-      }
     })
-  })
     .catch(err => {
       console.log("the error:", err)
       res.redirect("/profiles")
     })
-  }
+}
   
 
 
