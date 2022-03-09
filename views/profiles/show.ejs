@@ -10,70 +10,70 @@
   <% if (isSelf) { %>
     <div class="form">
     <form action="/profiles/<%= profile._id %>/houses" method="POST" class="form-1">
-      <h2>Add a House for Sale!</h2><br>
+      <h2 class="form-heading">Add a House</h2><br>
       <label class="form-label">
         Address:
-        <input type="text" name="address" autocomplete="off" class="form-control">
+        <input type="text" name="address" autocomplete="off" class="input-address">
       </label><br>
       <label>
         Price:
-        <input type="number" name="price" class="form-control">
+        <input type="number" name="price" class="input-price">
       </label><br>
       <label>
         Number of Bedrooms:
-        <input type="number" name="numBedrooms" class="form-control">
+        <input type="number" name="numBedrooms" class="input-num">
       </label><br>
       <label>
         Number of Bathrooms:
-        <input type="number" name="numBathrooms" class="form-control">
+        <input type="number" name="numBathrooms" class="input-num">
       </label><br>
       <label>
         Contact Number:
-        <input type="number" name="phoneNo" class="form-control">
+        <input type="number" name="phoneNo" class="input-contact">
       </label><br>
       <label>
         Contact Email:
-        <input type="text" name="email" class="form-control">
+        <input type="text" name="email" class="input-contact">
       </label><br>
       <label for="exampleFormControlTextarea1">
         Property Description:
-        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="text-area" name="description" id="exampleFormControlTextarea1" rows="3" ></textarea>
         </label><br>
-      <button type="submit" class="btn btn-outline-secondary">Add Home for Sale</button>
+      <button type="submit" class="btn btn-outline-secondary add">Add Home for Sale</button>
     </form>
   <% } %>
   <% if (user) { %>
     <form action="/profiles/<%= profile._id %>/apartments" method="POST" class="form-2">
-      <h2>Add An Apartment for Rent!</h2>
+      <h2 class="form-heading">Add an Apartment</h2>
       <label>
         Address:
-        <input type="text" name="address" autocomplete="off" class="form-control">
+        <input type="text" name="address" autocomplete="off" class="input-address">
       </label><br>
       <label>
         Price:
-        <input type="number" name="price" class="form-control">
+        <input type="number" name="price" class="input-price">
       </label><br>
       <label>
         Number of Bedrooms:
-        <input type="number" name="numBedrooms" class="form-control">
+        <input type="number" name="numBedrooms" class="input-num">
       </label><br>
       <label>
         Number of Bathrooms:
-        <input type="number" name="numBathrooms" class="form-control">
+        <input type="number" name="numBathrooms" class="input-num">
       </label><br>
       <label>
         Contact Number:
-        <input type="number" name="phoneNo" class="form-control">
+        <input type="number" name="phoneNo" class="input-contact">
       </label><br>
       <label>
         Contact Email:
-        <input type="text" name="email" class="form-control">
+        <input type="text" name="email" class="input-contact">
       </label><br>
       <label for="exampleFormControlTextarea1">
         Property Description:
-        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="text-area" name="description" id="exampleFormControlTextarea1" rows="3" ></textarea>
         </label><br>
-      <button type="submit" class="btn btn-outline-secondary">Add Apartment for Rent</button>
+      <button type="submit" class="btn btn-outline-secondary add">Add Apartment for Rent</button>
     </form>
   </div>
   <% } %>
