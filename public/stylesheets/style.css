@@ -90,10 +90,6 @@ button {
   font-size: 15px;
 }
 
-ul {
-  font-size: 15px;
-}
-
 .card-title {
   font-size: 20px;
 }
@@ -103,8 +99,9 @@ ul {
 }
 
 ul {
+  font-size: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   text-decoration: none;
   list-style-type: none;
@@ -118,7 +115,10 @@ ul {
 
 .apartments, .houses {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* align-items: center;
+  align-content: center; */
+  justify-items: center;
 }
 
 .form label {
