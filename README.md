@@ -4,6 +4,8 @@
 
 ### **[Go to webiste here!](https://nyrealty.herokuapp.com/)**
 
+**[See project planning on Trello here](https://trello.com/b/6zVqj5M7/sei-project-2)**
+
 ***
 NYC Realty is a web application built around the needs of the consumer so they may be quickly informed on the state of the market. Sellers are able to log in and create a profile, then browse to their page to list homes or apartments they have available. Users are quickly and efficiently able to check for the listings they have up, edit as needed, and delete them. 
 ***
