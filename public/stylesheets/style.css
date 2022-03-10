@@ -77,10 +77,6 @@ h2, h3 {
   font-size: 30px;
 }
 
-button {
-  margin-right: 10px;
-}
-
 .btn {
   padding: 4px;
   font-size: 15px;
@@ -173,7 +169,7 @@ input {
   padding:15px;
   border-radius:5px;
   border:0;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  box-shadow:4px 4px 5px rgba(0,0,0,0.06);
   height:100px;
   width: 100%;
 }
